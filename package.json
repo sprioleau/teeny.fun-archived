@@ -1,5 +1,6 @@
 {
-  "name": "teeny",
+  "name": "teeny.fun",
+  "description": "Make teeny tiny URLs with emojis 😂!",
   "version": "0.1.0",
   "private": true,
   "scripts": {
