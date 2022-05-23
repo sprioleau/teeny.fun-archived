@@ -31,7 +31,7 @@ body {
   margin: 2rem 0;
 }
 
-input {
+input[type="text"] {
   width: 100%;
   padding: 0.25rem;
 }
@@ -46,4 +46,30 @@ button {
 
 footer {
   margin-top: auto;
+}
+
+.button-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  margin-bottom: 1rem;
+}
+
+ul {
+  margin: 1rem 0;
+}
+
+table {
+  border-collapse: collapse;
+  width: 200px;
+  margin: 2rem 0;
+}
+
+th,
+td {
+  border: 1px solid;
+  padding: 0.25rem;
+  text-align: center;
 }
