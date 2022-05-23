@@ -2,9 +2,11 @@ import { TopEmoji, Url } from "../types";
 import { constructTeenyUrl, isAlphaNumeric, isEmoji, isValidUrl } from "../utils";
 
 import Head from "next/head";
+import Link from "next/link";
 import React from "react";
 import { User } from "@supabase/supabase-js";
 import getTopEmojis from "../utils/getTopEmojis";
+import { log } from "../utils";
 import removeTrailingSlash from "../utils/removeTrailingSlash";
 import { supabase } from "../libs/subabase";
 
@@ -53,8 +55,8 @@ const Home = ({ urls, topEmojis }: IndexPageProps) => {
 			// setAddedUrls((addedUrls) => [...addedUrls, newlyAddedUrl]);
 		}
 
-		console.log({ data, error });
-	};;
+		log({ data, error });
+	};
 
 	const handleSubmit = async (e: React.FormEvent) => {
 		e.preventDefault();
@@ -125,10 +127,10 @@ const Home = ({ urls, topEmojis }: IndexPageProps) => {
 					</button>
 				</div>
 				<p>
-					<a href="/">Login</a> to Customize your teeny code.
+					<Link href="/">Login</Link> to Customize your teeny code.
 				</p>
 				<p>
-					<a href="/">Already have an account?</a>
+					<Link href="/">Already have an account?</Link>
 				</p>
 				{/* <h2>Your Teeny URLs</h2>
 				<div className="your-teeny-urls">
@@ -136,7 +138,7 @@ const Home = ({ urls, topEmojis }: IndexPageProps) => {
 						<ul>
 							{[...urls, ...addedUrls].map(({ id, teeny_code, hits, long_url }) => (
 								<li key={id}>
-									<a href={`/redirect?to=${long_url}`}>{constructTeenyUrl(teeny_code)}</a>
+									<Link href={`/redirect?to=${long_url}`}>{constructTeenyUrl(teeny_code)}</Link>
 									<span>Hits: {hits}</span>
 								</li>
 							))}

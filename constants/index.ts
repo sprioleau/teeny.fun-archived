@@ -1,6 +1,8 @@
 const deployedUrl = "http://localhost:3000";
 
-export const ROOT_URL = process.env.NODE_ENV === "development" ? "http://localhost:3000" : deployedUrl;
+export const isDevelopment = process.env.NODE_ENV === "development";
+
+export const ROOT_URL = isDevelopment ? "http://localhost:3000" : deployedUrl;
 
 // Source: https://www.makeuseof.com/top-emojis-explained-cheat-sheet/
 // Removed emojis with multiple skin tones
