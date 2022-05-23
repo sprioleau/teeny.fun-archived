@@ -2,6 +2,14 @@
   "compilerOptions": {
     "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "baseUrl": ".",
+    "paths": {
+      "@constants": ["constants"],
+      "@libs/*": ["libs/*"],
+      "@styles/*": ["styles/*"],
+      "@types": ["types"],
+      "@utils": ["utils"],
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,

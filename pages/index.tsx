@@ -1,14 +1,11 @@
 import { TopEmoji, Url } from "../types";
-import { constructTeenyUrl, isAlphaNumeric, isEmoji, isValidUrl } from "../utils";
+import { constructTeenyUrl, getTopEmojis, isAlphaNumeric, isEmoji, isValidUrl, log, removeTrailingSlash } from "@utils";
 
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
 import { User } from "@supabase/supabase-js";
-import getTopEmojis from "../utils/getTopEmojis";
-import { log } from "../utils";
-import removeTrailingSlash from "../utils/removeTrailingSlash";
-import { supabase } from "../libs/subabase";
+import { supabase } from "@libs/subabase";
 
 type IndexPageProps = {
 	urls: Url[] | [];

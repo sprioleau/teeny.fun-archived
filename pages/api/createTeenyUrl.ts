@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
 import emojiUnicode from "emoji-unicode";
-import { supabase } from "../../libs/subabase";
-import { topEmojis } from "../../constants";
+import { supabase } from "@libs/subabase";
+import { topEmojis } from "@constants";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const {

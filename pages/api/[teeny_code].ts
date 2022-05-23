@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { ROOT_URL } from "../../constants";
-import { hasNone } from "../../utils";
-import { supabase } from "../../libs/subabase";
+import { ROOT_URL } from "@constants";
+import { hasNone } from "@utils";
+import { supabase } from "@libs/subabase";
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
 	const { teeny_code } = req.query;
