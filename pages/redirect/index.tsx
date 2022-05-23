@@ -13,7 +13,6 @@ const RedirectPage: NextPage = () => {
 
 		const redirectUrl = to as string;
 		const timeout = setTimeout(() => (window.location.href = redirectUrl), 3000);
-		// const timeout = setTimeout(() => router.push(redirectUrl), 3000);
 		return () => clearTimeout(timeout);
 	}, [router, query, to]);
 
