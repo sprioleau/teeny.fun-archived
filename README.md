@@ -1,34 +1,77 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<!-- ![Social Card][social-card-url] -->
 
-## Getting Started
+<!-- ![Vercel Status](https://img.shields.io/github/deployments/sprioleau/sprioleau.dev/production?label=vercel&logo=vercel&style=for-the-badge) -->
 
-First, run the development server:
+# Make teeny tiny URLs with emojis 😂!
+
+Use [teeny.fun][deployed-url] to generate emoji-powered short links. Login to customize your teeny link.
+
+## 🔗 Links
+
+- 🚀 Deployed at [teeny.fun][deployed-url]
+
+<!-- ## Screenshots
+
+![Homepage Screenshot][homepage-screenshot-url] -->
+
+## 💿 Installation
+
+Clone this repo
+
+```bash
+git clone https://github.com/sprioleau/teeny.fun.git
+```
+
+Install via npm
+
+```bash
+npm install
+```
+
+Run developemnt server
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🛠 Built With
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+| Technology            | Used For                                                    |
+| :-------------------- | :---------------------------------------------------------- |
+| TypeScript            | -                                                           |
+| Next.js               | Server/client communication, routing, server-side rendering |
+| Supabase              | PostgreSQL database                                         |
+| Netlify               | Hosting, Serverless functions                               |
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+<!-- ## ⬆️ Future Updates
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+- [ ] How I built this website page -->
 
-## Learn More
+## 👨🏾‍💻 Author
 
-To learn more about Next.js, take a look at the following resources:
+**San'Quan Prioleau**
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- [Profile][github-url]
+- [Website][website]
+- [LinkedIn][linkedin]
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## 🎗 Support
 
-## Deploy on Vercel
+Issues, and feature requests are welcome!
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Give a ⭐️ if you like this project!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<!-- ## Acknowledgements
+
+- Inspired by [Brittany Chiang](https://github.com/bchiang7/v4) -->
+
+<!-- Author Details -->
+[github-url]: https://github.com/spriolau "San'Quan Prioleau on Github"
+[website]: https://sprioleau.dev "San'Quan Prioleau's personal website"
+[headshot_url]: https://avatars.githubusercontent.com/u/49278940?v=4 "San'Quan Prioleau headshot"
+[linkedin]: https://www.linkedin.com/in/sanquanprioleau/
+
+<!-- Project Details -->
+[deployed-url]: https://teeny.fun
+<!-- [social-card-url]: https://sprioleau.dev/images/sprioleau-social-card.png "Social Card" -->
+<!-- [homepage-screenshot-url]: https://sprioleau.dev/images/homepage.png "Homepage Screenshot" -->
