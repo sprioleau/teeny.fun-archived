@@ -4,6 +4,10 @@ export const isDevelopment = process.env.NODE_ENV === "development";
 
 export const ROOT_URL = isDevelopment ? "http://localhost:3000" : deployedUrl;
 
+export const STRINGS = {
+	TEENY_URLS: "teeny_urls",
+};
+
 // Source: https://www.makeuseof.com/top-emojis-explained-cheat-sheet/
 // Removed emojis with multiple skin tones
 export const topEmojis: string[] = [
