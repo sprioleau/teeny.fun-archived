@@ -1,22 +1,22 @@
-import { TopEmoji, Url } from "../types";
-import { constructTeenyUrl, getTopEmojis, isAlphaNumeric, isEmoji, isValidUrl, log, removeTrailingSlash } from "@utils";
+import { getTopEmojis, isValidUrl, log, removeTrailingSlash } from "@utils";
 
 import Head from "next/head";
 import Link from "next/link";
 import React from "react";
+import { TopEmoji } from "../types";
 import { User } from "@supabase/supabase-js";
 import { supabase } from "@libs/subabase";
 
 type IndexPageProps = {
-	urls: Url[] | [];
+	// urls: Url[] | [];
 	topEmojis: TopEmoji;
 };
 
-const Home = ({ urls, topEmojis }: IndexPageProps) => {
+const Home = ({
+	// urls,
+	topEmojis,
+}: IndexPageProps) => {
 	const [longUrl, setLongUrl] = React.useState<string>("");
-	const [teenyCode, setTeenyCode] = React.useState<string>("");
-	// const [addedUrls, setAddedUrls] = React.useState<Url[] | []>([]);
-	// const [allowAlphaNumeric, setAllowAlphaNumeric] = React.useState<boolean>(false);
 	const [authedUser, setAuthedUser] = React.useState<User | null>(null);
 
 	const isSet = (values: string | string[]) => {
@@ -25,31 +25,20 @@ const Home = ({ urls, topEmojis }: IndexPageProps) => {
 	};
 
 	const handleUpdateLongUrl = (e: React.ChangeEvent<HTMLInputElement>) => setLongUrl(e.target.value);
-	// const handleUpdateEmojis = (e: React.ChangeEvent<HTMLInputElement>) => {
-	// 	setTeenyCode(e.target.value);
-	// };
 
 	const handleCreateTeenyLink = async () => {
 		if (!isSet(longUrl)) return alert("Required fields not set");
-		// if (!isSet([longUrl, teenyCode])) return alert("Required fields not set");
 		if (!isValidUrl(longUrl)) return alert("Not a valid URL");
-		// if (!isEmoji(teenyCode)) return alert("Emojis only, please!");
 
-		const newUrl = {
-			// code_points: emojiUnicode.raw(teenyCode),
+		const queryString = new URLSearchParams({
 			long_url: String(removeTrailingSlash(longUrl)),
-			// teeny_code: teenyCode,
-		};
+		});
 
-		const queryString = new URLSearchParams(newUrl);
 		const response = await fetch(`/api/createTeenyUrl?${queryString}`);
 		const { data, error } = await response.json();
 
 		if (!error) {
 			setLongUrl("");
-			setTeenyCode("");
-			// const newlyAddedUrl: Url = data[0];
-			// setAddedUrls((addedUrls) => [...addedUrls, newlyAddedUrl]);
 		}
 
 		log({ data, error });
@@ -70,8 +59,6 @@ const Home = ({ urls, topEmojis }: IndexPageProps) => {
 
 		if (error) console.error(error);
 	};
-
-	// const toggleAlphaCharacters = () => setAllowAlphaNumeric(!allowAlphaNumeric);
 
 	supabase.auth.onAuthStateChange((_, session) => {
 		const user = session?.user || null;
@@ -105,20 +92,6 @@ const Home = ({ urls, topEmojis }: IndexPageProps) => {
 						URL
 						<input type="text" id="long-url" required value={longUrl} onChange={handleUpdateLongUrl} />
 					</label>
-					{/* <label htmlFor="teeny-code">
-						Teeny Code
-						<input type="text" id="teeny-code" required value={teenyCode} onChange={handleUpdateEmojis} />
-					</label> */}
-					{/* <label htmlFor="enable-alphanumeric">
-						Allow Alphanumeric
-						<input
-							type="checkbox"
-							id="enable-alphanumeric"
-							required
-							checked={allowAlphaNumeric}
-							onChange={toggleAlphaCharacters}
-						/>
-					</label> */}
 					<button type="submit" onClick={handleCreateTeenyLink}>
 						Create Teeny Link
 					</button>
@@ -129,19 +102,6 @@ const Home = ({ urls, topEmojis }: IndexPageProps) => {
 				<p>
 					<Link href="/">Already have an account?</Link>
 				</p>
-				{/* <h2>Your Teeny URLs</h2>
-				<div className="your-teeny-urls">
-					{urls.length > 0 ? (
-						<ul>
-							{[...urls, ...addedUrls].map(({ id, teeny_code, hits, long_url }) => (
-								<li key={id}>
-									<Link href={`/redirect?to=${long_url}`}>{constructTeenyUrl(teeny_code)}</Link>
-									<span>Hits: {hits}</span>
-								</li>
-							))}
-						</ul>
-					) : null}
-				</div> */}
 				{topEmojis && (
 					<table>
 						<thead>
@@ -180,19 +140,19 @@ const Home = ({ urls, topEmojis }: IndexPageProps) => {
 export default Home;
 
 export const getServerSideProps = async () => {
-	let urls = [];
+	// let urls = [];
 	let topEmojis = null;
 
 	const { data, error } = await supabase.from("urls").select().limit(100);
 
 	if (!error && data) {
-		urls = data;
+		// urls = data;
 		topEmojis = getTopEmojis(data);
 	}
 
 	return {
 		props: {
-			urls,
+			// urls,
 			topEmojis,
 		},
 	};
